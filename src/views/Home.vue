@@ -1,11 +1,13 @@
 <template>
     <div id="nav">
-        <router-link to="/yesterday">
-            <img src="../assets/image/day.jpeg">
-        </router-link>
+        <!--        <router-link to="/yesterday">-->
+        <!--            <img src="../assets/image/day.jpeg">-->
+        <!--        </router-link>-->
         <!--    <router-link to="/today">2</router-link>-->
         <!--    <router-link to="/tomorrow">3</router-link>-->
+            <router-link to="/test/checkBox">3</router-link>
     </div>
+
 </template>
 
 <script lang="ts">
@@ -15,6 +17,7 @@
         components: {},
     })
     export default class Home extends Vue {
+
     }
 </script>
 
