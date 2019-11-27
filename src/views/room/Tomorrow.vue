@@ -59,10 +59,20 @@
     })
     export default class Tomorrow extends Vue {
         value: [] = []
-        list: Array<Item> = [{label: "付费订单", value: "付费订单", group: "订单"},
+        /**
+         * 初始数据
+         */
+        list: Array<Item> = [
+            {label: "苹果付费订单", value: "付费订单", group: "订单.水果"},
+            {label: "香蕉付费订单", value: "付费订单", group: "订单.水果"},
+            {label: "轮胎付费订单", value: "付费订单", group: "订单"},
             {label: "退费订单",value: "退费订单", group: "订单"},
-            {label: "订单明细", value: "订单明细", group: ""}]
+            {label: "订单明细", value: "订单明细", group: ""}
+            ]
 
+        /**
+         * 数据组装调用方法
+         */
         get dataForTree():Array<TreeItem>{
             let treeItems = this.list.map((item:Item)=>this.treeData(item));
             let treeData = this.groupTreeData(treeItems);
@@ -71,18 +81,26 @@
             return treeData;
         }
 
-
+        /**
+         * Item组装为TreeItem
+         * @param item
+         * @param children
+         */
         itemToTreeItem(item: Item, children: Array<Item>): TreeItem {
             return {label: item.label, value: item.value, group: item.group, children};
         }
 
+        /**
+         * item根据group转换为TreeItem
+         * @param item
+         */
         treeData(item: Item): TreeItem {
             if (item.group != undefined && item.group.length > 0) {
                 if (item.group === item.value) {
                     return this.itemToTreeItem(item, []);
                 } else {
                     let groups = item.group.split(".");
-                    let treeItem: TreeItem = {label: item.label, value: item.value, group: item.group, children: []};
+                    let treeItem: TreeItem = {label: groups[0], value: groups[0], group:groups[0], children: []};
                     if (groups.length >= 2) {
                         item.group = groups.splice(0, 1).join(".");
                         treeItem.children.push(this.treeData(item));
@@ -98,6 +116,10 @@
             }
         }
 
+        /**
+         * TreeItem合并
+         * @param list
+         */
         groupTreeData(list: Array<TreeItem>): Array<TreeItem> {
             if (list == null || list.length <= 0) {
                 return [];
