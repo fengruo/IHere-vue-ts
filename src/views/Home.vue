@@ -3,9 +3,9 @@
         <!--        <router-link to="/yesterday">-->
         <!--            <img src="../assets/image/day.jpeg">-->
         <!--        </router-link>-->
-        <!--    <router-link to="/today">2</router-link>-->
-        <!--    <router-link to="/tomorrow">3</router-link>-->
-            <router-link to="/test/checkBox">3</router-link>
+<!--            <router-link to="/today">2</router-link>-->
+            <router-link to="/tomorrow">3</router-link>
+<!--            <router-link to="/test/checkBox">3</router-link>-->
     </div>
 
 </template>

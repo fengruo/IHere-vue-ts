@@ -27,11 +27,6 @@ export default new Router({
       path: '/today',
       name: 'today',
       component: () => import('./views/room/Today.vue'),
-    },
-    {
-      path: '/test/checkBox',
-      name: 'test_checkBox',
-      component: () => import('./views/test/CheckBox.vue'),
-    },
+    }
   ],
 });
