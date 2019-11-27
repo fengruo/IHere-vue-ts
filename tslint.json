@@ -5,10 +5,11 @@
   ],
   "linterOptions": {
     "exclude": [
-      "node_modules/**"
+      "/**"
     ]
   },
   "rules": {
+    "semi": [2, "always"],
     "indent": [true, "spaces", 2],
     "interface-name": false,
     "no-consecutive-blank-lines": false,
